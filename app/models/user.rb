@@ -2,8 +2,15 @@ class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
+  validates :activated, inclusion: { in: [true, false] }
 
   after_initialize :ensure_session_token
+  after_initialize :ensure_activation
+
+  after_create do
+    self.activation_token = SecureRandom.urlsafe_base64
+    save!
+  end
 
   has_many :notes, foreign_key: :author_id
 
@@ -41,5 +48,9 @@ class User < ActiveRecord::Base
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
+  end
+
+  def ensure_activation
+    self.activated ||= false
   end
 end

@@ -2,6 +2,11 @@
 <h1>Add a Track</h1>
 <% end %>
 
+<%= render(
+  partial: "shared/errors",
+  locals: {errors: @track.errors.full_messages}
+)%>
+
 <%= render partial: "form", locals: {track: @track, albums: @albums} %>
 
 <p>

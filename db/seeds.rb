@@ -6,10 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(email: "matt@capitolrecords.com", password: "password")
-User.create!(email: "thom@capitolrecords.com", password: "maggiesux")
-User.create!(email: "johnny@capitolrecords.com", password: "imakesoundtracks")
-User.create!(email: "aholeexec@capitolrecords.com", password: "bankbaby")
+User.create!(
+  email: "matt@capitolrecords.com",
+  password: "password",
+  activated: true
+)
+User.create!(
+  email: "thom@capitolrecords.com",
+  password: "maggiesux",
+  activated: true
+)
+User.create!(
+  email: "johnny@capitolrecords.com",
+  password: "imakesoundtracks",
+  activated: true
+)
+User.create!(
+  email: "aholeexec@capitolrecords.com",
+  password: "bankbaby",
+  activated: true
+)
 
 radiohead = Band.create!(name: "Radiohead")
 theclash  = Band.create!(name: "The Clash")

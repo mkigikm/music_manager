@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   private
   def log_in(user)
-    session[:token] = user.reset_session_token!
+    session[:token] = user.reset_session_token! if user.activated
   end
 
   def log_out(user)

@@ -2,6 +2,11 @@
 <h1>Add and Album</h1>
 <% end %>
 
+<%= render(
+  partial: "shared/errors",
+  locals: {errors: @album.errors.full_messages}
+)%>
+
 <%= render partial: "form", locals: {album: @album, bands: @bands} %>
 
 <p>
