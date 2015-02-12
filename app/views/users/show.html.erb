@@ -1,3 +1,6 @@
 <% content_for :title do %>
 <h1>Welcome <%= current_user.email %></h1>
+<p>
+  <a href="<%= bands_url %>">Manage Bands</a>
+</p>
 <% end %>

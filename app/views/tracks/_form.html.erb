@@ -11,7 +11,7 @@
   <label for="track_album_id">Album</label>
   <select name="track[album_id]">
     <% albums.each do |album| %>
-    <option value="<%= album.id %>"<%= "selected" if track[album] == album %>>
+    <option value="<%= album.id %>"<%= "selected" if track.album == album %>>
       <%= album.title.truncate(25) %>
     </option>
     <% end %>
