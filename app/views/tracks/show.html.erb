@@ -11,4 +11,5 @@
 <ul>
   <li><a href="<%= album_url(@track.album) %>">Back to <%= @track.album.title %></a></li>
   <li><a href="<%= edit_track_url(@track) %>">Edit <%= @track.title %></a></li>
+  <li><%= destroy_button(track_url(@track), "Delete #{h(@track.title)}") %></li>
 </ul>
