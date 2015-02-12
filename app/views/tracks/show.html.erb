@@ -8,6 +8,9 @@
 
 <pre><%= @track.lyrics %></pre>
 
+<%= render partial: @track.notes %>
+<%= render partial: "notes/form", locals: {track: @track} %>
+
 <ul>
   <li><a href="<%= album_url(@track.album) %>">Back to <%= @track.album.title %></a></li>
   <li><a href="<%= edit_track_url(@track) %>">Edit <%= @track.title %></a></li>

@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   resources :tracks, except: :index
 
+  resources :notes, only: [:create, :destroy]
+
   root 'sessions#new'
 end
