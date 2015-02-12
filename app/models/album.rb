@@ -11,4 +11,8 @@ class Album < ActiveRecord::Base
   def live?
     !studio
   end
+
+  def extended_title
+    "#{band.name} - #{title}"
+  end
 end

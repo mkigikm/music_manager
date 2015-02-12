@@ -3,10 +3,23 @@
 <% end %>
 
 <h2>Albums</h2>
-<ul>
-  <% @band.albums.each do |album| %>
-  <li><a href="<%= album_url(album) %>"><%= album.title %></a></li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+  <tr>
+    <td>title</td><td>Live</td>
+  </tr>
+  </thead>
 
+  <tbody>
+  <% @band.albums.each do |album| %>
+  <tr>
+    <td><a href="<%= album_url(album) %>"><%= album.title %></a></td>
+    <td><%= album.live? ? "&#x2713;".html_safe : "" %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p>
 <a href="<%= bands_url %>">All Bands</a>
+</p>
