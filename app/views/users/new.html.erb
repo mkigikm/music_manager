@@ -1,0 +1,24 @@
+<h1>Sign up for Music Manager</h1>
+
+<% if @user.errors %>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<form action="<%= users_url %>" method="post">
+  <%= auth_token %>
+
+  <label for="user_email">Email</label>
+  <input type="text" name="user[email]" value="<%= @user.email %>">
+  <br>
+
+  <label for="user_password">Password</label>
+  <input type="password" name="user[password]">
+  <br>
+
+  <button>Sign Up</button>
+
+</form>
