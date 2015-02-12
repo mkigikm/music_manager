@@ -6,7 +6,7 @@
   <%= @track.title %> is a <%= @track.regular? ? "regular" : "bonus" %> track.
 </p>
 
-<pre><%= @track.lyrics %></pre>
+<pre><%= ugly_lyrics(@track.lyrics) %></pre>
 
 <%= render partial: @track.notes %>
 <%= render partial: "notes/form", locals: {track: @track} %>
