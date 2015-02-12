@@ -22,14 +22,18 @@
   </tr>
   <% end %>
 
+  <% if current_user.admin %>
   <tr>
     <td><a href="<%= new_track_url %>">Add a Track</a></td>
   </tr>
+  <% end %>
   </tbody>
 </table>
 
 <ul>
   <li><a href="<%= band_url(@album.band) %>"><%= @album.band.name %></a></li>
+  <% if current_user.admin %>
   <li><a href="<%= edit_album_url(@album) %>">Edit Album Information</a></li>
   <li><%= destroy_button(album_url(@album), "Delete #{h(@album.title)}") %></li>
+  <% end %>
 </ul>

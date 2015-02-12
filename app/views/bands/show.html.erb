@@ -18,14 +18,18 @@
   </tr>
   <% end %>
 
+  <% if current_user.admin %>
   <tr>
     <td><a href="<%= new_album_url %>">Add an Album</a></td>
   </tr>
+  <% end %>
   </tbody>
 </table>
 
 <ul>
   <li><a href="<%= bands_url %>">All Bands</a></li>
+  <% if current_user.admin %>
   <li><a href="<%= edit_band_url(@band) %>">Edit Band Information</a></li>
   <li><%= destroy_button(band_url(@band), "Delete #{h(@band.name)}") %></li>
+  <% end %>
 </ul>

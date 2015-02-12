@@ -8,6 +8,8 @@
   <% end %>
 </ul>
 
+<% if current_user.admin %>
 <p>
   <a href="<%= new_band_url %>">Add a Band</a>
 </p>
+<% end %>
