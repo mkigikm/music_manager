@@ -1,6 +1,10 @@
 <% content_for :title do %>
 <h1>Welcome <%= current_user.email %></h1>
-<p>
-  <a href="<%= bands_url %>">Manage Bands</a>
-</p>
 <% end %>
+
+<ul>
+  <li><a href="<%= bands_url %>">Manage Bands</a></li>
+  <% if current_user.admin %>
+  <li><a href="<%= users_url %>">Manage Users</a></li>
+  <% end %>
+</ul>
