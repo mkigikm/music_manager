@@ -1,0 +1,26 @@
+<% content_for :title do %>
+<h1>Admin Page</h1>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>email</th><th>admin</th><th>toggle admin</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.admin ? "&#x2713;".html_safe : "" %></td>
+    <td>
+      <form action="<%= make_admin_user_url(user.id) %>" method="post">
+        <%= auth_token %>
+        <button>Make Admin</button>
+      </form>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

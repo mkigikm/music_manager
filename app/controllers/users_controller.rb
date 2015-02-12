@@ -1,7 +1,24 @@
 class UsersController < ApplicationController
+  before_action :require_admin, only: [:index, :make_admin]
+
   def new
     @user = User.new
     render :new
+  end
+
+  def index
+    @users = User.all
+    render :index
+  end
+
+  def make_admin
+    @user = User.find(params[:id])
+    unless @user == current_user
+      @user.toggle(:admin)
+      @user.save!
+    end
+
+    redirect_to users_url
   end
 
   def create

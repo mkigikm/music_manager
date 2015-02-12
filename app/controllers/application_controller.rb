@@ -30,4 +30,10 @@ class ApplicationController < ActionController::Base
   def require_login
     redirect_to new_session_url unless logged_in?
   end
+
+  def require_admin
+    unless current_user.admin
+      render text: "You naughty boy", status: :forbidden
+    end
+  end
 end

@@ -2,13 +2,14 @@ class User < ActiveRecord::Base
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
-  validates :activated, inclusion: { in: [true, false] }
+  validates :activated, :admin, inclusion: { in: [true, false] }
 
   after_initialize :ensure_session_token
   after_initialize :ensure_activation
 
   after_create do
     self.activation_token = SecureRandom.urlsafe_base64
+    self.admin = false
     save!
   end
 
