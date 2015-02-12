@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
   before_action :require_login
-  
+  before_action :require_admin, except: [:index, :show]
+
   def show
     @track = Track.find(params[:id])
     render :show

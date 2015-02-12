@@ -2,6 +2,6 @@
   Note from <%= note.author.email %>:
 </p>
 <pre><%= note.body %></pre>
-<% if note.author == current_user %>
+<% if detach_priviledges(note) %>
 <%= destroy_button(note_url(note), "Detach note") %>
 <% end %>

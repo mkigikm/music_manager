@@ -11,7 +11,7 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
 
-    if current_user == @note.author
+    if detach_priviledges(@note)
       @note.destroy!
       redirect_to track_url(@note.track)
     else

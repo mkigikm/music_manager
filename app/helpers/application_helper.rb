@@ -35,6 +35,8 @@ module ApplicationHelper
   end
 
   def ugly_lyrics(lyrics)
+    return unless lyrics
+
     lyrics.split("\n").map do |line|
       line.blank? ? line : "&#9835; #{h(line)}"
     end.join("\n").html_safe

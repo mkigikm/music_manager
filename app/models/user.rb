@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
   after_initialize :ensure_activation
+  after_initialize :ensure_admin
 
   after_create do
     self.activation_token = SecureRandom.urlsafe_base64
-    self.admin = false
     save!
   end
 
@@ -53,5 +53,9 @@ class User < ActiveRecord::Base
 
   def ensure_activation
     self.activated ||= false
+  end
+
+  def ensure_admin
+    self.admin ||= false
   end
 end

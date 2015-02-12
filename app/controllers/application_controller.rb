@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :detach_priviledges
 
   private
   def log_in(user)
@@ -35,5 +35,9 @@ class ApplicationController < ActionController::Base
     unless current_user.admin
       render text: "You naughty boy", status: :forbidden
     end
+  end
+
+  def detach_priviledges(note)
+    note.author == current_user || current_user.admin
   end
 end
