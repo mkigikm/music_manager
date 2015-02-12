@@ -15,7 +15,7 @@ class NotesController < ApplicationController
       @note.destroy!
       redirect_to track_url(@note.track)
     else
-      render text: "You naughty boy"
+      render text: "You naughty boy", status: :forbidden
     end
   end
 
