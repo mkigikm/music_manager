@@ -3,5 +3,12 @@
 <% end %>
 
 <p>
-  <a href="<%= album_url(@track.album) %>"></a>
+  <%= @track.title %> is a <%= @track.regular? ? "regular" : "bonus" %> track.
 </p>
+
+<pre><%= @track.lyrics %></pre>
+
+<ul>
+  <li><a href="<%= album_url(@track.album) %>">Back to <%= @track.album.title %></a></li>
+  <li><a href="<%= edit_track_url(@track) %>">Edit <%= @track.title %></a></li>
+</ul>

@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.delete_all
-Band.delete_all
-Album.delete_all
-Track.delete_all
-
 User.create!(email: "matt@capitolrecords.com", password: "password")
 User.create!(email: "thom@capitolrecords.com", password: "maggiesux")
 User.create!(email: "johnny@capitolrecords.com", password: "imakesoundtracks")

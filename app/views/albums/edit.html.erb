@@ -1,0 +1,9 @@
+<% content_for :title do %>
+<h1>Edit <%= @album.title %></h1>
+<% end %>
+
+<%= render partial: "form", locals: {album: @album, bands: @bands} %>
+
+<p>
+  <a href="<%= album_url(@album) %>">Back to <%= @album.title %></a>
+</p>

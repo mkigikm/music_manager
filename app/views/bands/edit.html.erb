@@ -1,0 +1,10 @@
+<% content_for :title do %>
+<h1>Edit <%= @band.name %></h1>
+<% end %>
+
+<%= render partial: "form", locals: {band: @band} %>
+
+<ul>
+  <li><a href="<%= bands_url %>">All Bands</a></li>
+  <li><a href="<%= band_url(@band) %>">Back to <%= @band.name %></a></li>
+</ul>

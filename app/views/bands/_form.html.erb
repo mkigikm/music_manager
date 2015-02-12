@@ -1,0 +1,11 @@
+<br>
+<form action="<%= band.persisted? ? band_url(band) : bands_url %>" method="post">
+  <%= auth_token %>
+
+  <%= post_or_patch(band) %>
+
+  <label for="band_name">Name</label>
+  <input type="text" name="band[name]" value="<%= band.name %>">
+
+  <button><%= band.persisted? ? "Edit" : "Create" %></button>
+</form>

@@ -17,9 +17,15 @@
     <td><%= album.live? ? "&#x2713;".html_safe : "" %></td>
   </tr>
   <% end %>
+
+  <tr>
+    <td><a href="<%= new_album_url %>">Add an Album</a></td>
+  </tr>
   </tbody>
 </table>
 
-<p>
-<a href="<%= bands_url %>">All Bands</a>
-</p>
+<ul>
+  <li><a href="<%= bands_url %>">All Bands</a></li>
+  <li><a href="<%= edit_band_url(@band) %>">Edit Band Information</a></li>
+  <li><%= destroy_button(band_url(@band), "Delete #{h(@band.name)}") %></li>
+</ul>

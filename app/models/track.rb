@@ -1,11 +1,16 @@
 class Track < ActiveRecord::Base
-  validates :title, :bonus, presence: true
+  validates :title,  presence: true
+  validates :bonus, inclusion: { in: [true, false] }
 
   belongs_to :album
   has_one :band, through: :album
 
   def bonus?
     bonus
+  end
+
+  def regular?
+    !bonus.nil? && !bonus
   end
 
   def extended_title

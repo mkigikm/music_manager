@@ -1,0 +1,9 @@
+<% content_for :title do %>
+<h1>Add and Album</h1>
+<% end %>
+
+<%= render partial: "form", locals: {album: @album, bands: @bands} %>
+
+<p>
+  <a href="<%= bands_url %>">All Bands</a>
+</p>

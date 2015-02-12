@@ -2,6 +2,10 @@
 <h1><%= @album.extended_title %></h1>
 <% end %>
 
+<p>
+  <%= @album.title %> is a <%= @album.studio? ? "studio" : "live" %> album.
+</p>
+
 <h2>Tracks</h2>
 <table>
   <thead>
@@ -17,9 +21,15 @@
     <td><%= track.bonus? ? "&#x2713;".html_safe : "" %></td>
   </tr>
   <% end %>
+
+  <tr>
+    <td><a href="<%= new_track_url %>">Add a Track</a></td>
+  </tr>
   </tbody>
 </table>
 
-<p>
-<a href="<%= band_url(@album.band) %>"><%= @album.band.name %></a>
-</p>
+<ul>
+  <li><a href="<%= band_url(@album.band) %>"><%= @album.band.name %></a></li>
+  <li><a href="<%= edit_album_url(@album) %>">Edit Album Information</a></li>
+  <li><%= destroy_button(album_url(@album), "Delete #{h(@album.title)}") %></li>
+</ul>
