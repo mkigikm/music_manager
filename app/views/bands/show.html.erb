@@ -1,0 +1,12 @@
+<% content_for :title do %>
+<h1><%= @band.name %></h1>
+<% end %>
+
+<h2>Albums</h2>
+<ul>
+  <% @band.albums.each do |album| %>
+  <li><a href="<%= album_url(album) %>"><%= album.title %></a></li>
+  <% end %>
+</ul>
+
+<a href="<%= bands_url %>">All Bands</a>

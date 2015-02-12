@@ -3,5 +3,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
+  resources :bands
+
+  resources :albums, except: :index
+
+  resources :tracks, except: :index
+
   root 'sessions#new'
 end
